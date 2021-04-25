@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id 'idea'
+}
+
+
+repositories {
+    jcenter()
+}
+
+
+ext {
+    cucumber = '6.4.0'
+    selenium = '3.141.59'
+}
+
+
+dependencies {
+    testImplementation "io.cucumber:cucumber-java:$cucumber"
+    testImplementation "io.cucumber:cucumber-testng:$cucumber"
+    testImplementation "org.seleniumhq.selenium:selenium-java:$selenium"
+    testImplementation "org.seleniumhq.selenium:selenium-api:$selenium"
+}
+
+
+tasks.named('test') {
+    // Use TestNG for unit tests.
+    useTestNG()
+}
